@@ -14,14 +14,14 @@ tasks = [
     },
 
     {
-        "course": "【新】ライブラリ「NumPy」基礎（数値計算）【4004】",
+        "course": "〔新〕ライブラリ「NumPy」基礎（数値計算）【4004】",
         "answer": "# 必要なライブラリをimport\nimport numpy as np\nimport time\nfrom numpy.random import rand\n\n# 行、列の大きさ\nN = 5000\n\n# 配列の初期化\nmat = rand(N, N)\n\n# Numpyの機能を使わずに計算\n\n# 開始時間の取得\nstart = time.time()\n\n# for文を使って、1番目の軸に沿って平均を計算\nmean_not_numpy = []\nfor i in range(N):\n    mean_not_numpy.append(sum(mat[i]) / len(mat[i]))\n\n# 出力形式を整えるため、numpy配列に変換\nprint(np.array(mean_not_numpy))\nprint(f'Total time when not using NumPy：{(time.time() - start):.2f}[sec]')\nprint()\n\n# NumPyを使って計算\n\n# 開始時間の取得\nstart = time.time()\n\n# NumPyの機能を使って、1番目の軸に沿って平均を計算\nmean_numpy = mat.mean(axis=1)\n\nprint(mean_numpy)\nprint(f'Total time when using NumPy：{(time.time() - start):.2f}[sec]')",
         "correct_response": "{{コース}}の添削課題のご提出ありがとうございます。\n添削結果を返却いたします。\nーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー\n\n「NumPy」基礎（数値計算）【4004】の添削課題のご提出お疲れさまでした。\n正解です。\n\n今回の添削課題において、\nfor文とNumpyによる計算処理速度を比較いただいたことで、\nNumpyの計算処理性能の高さを実感いただけたと思います。\n\n引き続き、頑張っていきましょう。\n次回の課題提出をお待ちしております。",
         "incorrect_response": "{{コース}}の添削課題のご提出ありがとうございます。\n添削結果を返却いたします。\nーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー\n\n「NumPy」基礎（数値計算）【4004】の添削課題のご提出お疲れさまでした。\n 残念ながら不正解です。\n\n{{修正コメント}}\n\n解答例を添付いたしますので、内容のご確認をお願いいたします。\n\n再提出の必要はございませんので、先に、お進みください。\n次回の提出もお待ちしております。"
     }
     ,
     {
-        "course": "【新】ライブラリ「NumPy」基礎（数値計算）【4004】_応用問題",
+        "course": "〔新〕ライブラリ「NumPy」基礎（数値計算）【4004】_応用問題",
         "answer": "#====応用課題=====\nimport numpy as np\n\n# 乱数の初期化\nnp.random.seed(0)\n\n# 指定された大きさの画像を乱数を用いて生成する関数\n# 仮引数mは画像の縦の大きさ、nは画像の横の大きさです\ndef make_image(m, n):\n    \n    # m×n行列の各成分を0~5の値でランダムに満たしてください\n    image = np.random.randint(0, 6, (m, n))\n        \n    return image\n\n\n# 渡された行列の一部を変更する関数\ndef change_matrix(matrix):\n    # 与えられた行列の形を取得し、shapeに代入してください\n    shape = matrix.shape\n    \n    # 行列の各成分について、変更するかしないかをランダムに決めた上で\n    # 変更する場合は0~5のいずれかの整数にランダムに入れ替えてください\n    for i in range(shape[0]):\n        for j in range(shape[1]):\n            if np.random.randint(0, 2)==1:\n                matrix[i][j] = np.random.randint(0, 6, 1)\n    return matrix\n\n# ランダムに画像を作成\nimage1 = make_image(3, 3)\nprint(image1)\nprint()\n\n# ランダムに変更を適用する\nimage2 = change_matrix(np.copy(image1))\nprint(image2)\nprint()\n\n# image1とimage2の差分を計算し、image3に代入してください\nimage3 = image2 - image1\nprint(image3)\nprint()\n\n# image3の各成分が絶対値である行列をもとめimage3に再代入してください\nimage3 = np.abs(image3)\n\n# image3を出力\nprint(image3)\n",
         "correct_response": "「NumPy」基礎（数値計算）【4004】の応用添削課題のご提出お疲れさまでした。\n正解です。\n\n適切にコードが書かれていて大変素晴らしいです\n解答例も添付いたしますので、お手すきの際にご確認いただけると幸いです。\n\n引き続き、頑張っていきましょう。\n次回の課題提出をお待ちしております。",
         "incorrect_response": "「NumPy」基礎（数値計算）【4004】の応用添削課題のご提出お疲れさまでした。\n 残念ながら不正解です。\n\n{{修正コメント}}\n\n解答例を添付いたしますので、内容のご確認をお願いいたします。\n\n再提出の必要はございませんので、先に、お進みください。\n次回の提出もお待ちしております。"
@@ -33,10 +33,10 @@ tasks = [
         "incorrect_response": "{{コース}}の添削課題のご提出ありがとうございます。\n添削結果を返却いたします。\nーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー\n\n{{コース}}の添削課題の提出お疲れ様でした。\n 残念ながら不正解です。\n\n{{修正コメント}}\n\n解答例を添付いたしますので、内容のご確認をお願いいたします。\n\n再提出の必要はございませんので、先に、お進みください。\n次回の提出もお待ちしております。"
     },
     {
-    "course": "【新】ライブラリ「Matplotlib」基礎（可視化）【4044】_応用問題",
+    "course": "〔新〕ライブラリ「Matplotlib」基礎（可視化）【4044】_応用問題",
     "answer": "#=====応用課題=====\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport math\nimport time\n\nnp.random.seed(100)\nX = 0  # 的に当たった回数です\n\n# 試行回数Nを指定してください。\nN = 1000\n# 四分円の境界の方程式[y=√1-x^2 (0<=x<=1)]を描画しています。\ncircle_x = np.arange(0, 1, 0.001)\ncircle_y = np.sqrt(1 - circle_x * circle_x)\nplt.figure(figsize=(5, 5))\nplt.plot(circle_x, circle_y)\n\n# N回の試行にかかる時間を計測します。\nstart_time = time.perf_counter()\n\n#プロット用の空の配列を用意\ninternal_x = []\ninternal_y = []\nexternal_x = []\nexternal_y = []\n\n# N回の試行を行っています。\nfor i in range(N):\n    # 0から1の間で一様乱数を発生させ、変数score_xに格納してください。\n    score_x = np.random.rand()\n    # 0から1の間で一様乱数を発生させ、変数score_yに格納してください。\n    score_y = np.random.rand()\n    if score_x * score_x + score_y * score_y <= 1:\n        # 的に入ったものはinternal_x, internal_yに追加してください。\n        internal_x.append(score_x)\n        internal_y.append(score_y)\n        \n        # 得点Xを1追加してください\n        X = X + 1\n    else:\n        # 的から外れたものはexternal_x, external_yに追加してください。\n        external_x.append(score_x)\n        external_y.append(score_y)\n\n# piの近似値をここで計算してください。\npi = 4*float(X)/float(N)\n\n# モンテカルロ法の実行時間を計算しています。\nend_time = time.perf_counter()\ntime = end_time - start_time\n\n# 円周率の結果を表示。\nprint(\"円周率:%.6f\" % pi)\nprint(\"実行時間:%f\" % (time))\n\n# 散布図を描画してください。四分円内にある点は赤で、四分円外にある点は青で描画してください。\nplt.scatter(internal_x, internal_y, color=\"r\")\nplt.scatter(external_x, external_y, color=\"b\")\n\n# 結果を表示\nplt.grid(True)\nplt.xlabel('X')\nplt.ylabel('Y')\nplt.show()",
-    "correct_response": "【新】ライブラリ「Matplotlib」基礎（可視化）【4044】 の応用添削問題のご提出ありがとうございます。\n添削結果を返却致します。\nーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー\n\n「Matplotlib」基礎（可視化）【4044】 の応用添削課題お疲れ様でした。\n正解です。\n\n今回の応用添削課題では、モンテカルロ法についての問題でした。\nシッカリと理解されていることがうかがえます。\n\n今後もこの調子で頑張ってください。\nそれでは次回の添削問題もお待ちしております。",
-    "incorrect_response": "【新】「Matplotlib」基礎（可視化）【4044】の応用添削課題のご提出ありがとうございます。\n添削結果を返却いたします。\nーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー\n\n「Matplotlib」基礎（可視化）【4044】の応用添削課題のご提出お疲れさまでした。\n 残念ながら不正解です。\n\n{{修正コメント}}\n\n解答例を添付いたしますので、内容のご確認をお願いいたします。\n\n再提出の必要はございませんので、先に、お進みください。\n次回の提出もお待ちしております。"
+    "correct_response": "〔新〕ライブラリ「Matplotlib」基礎（可視化）【4044】 の応用添削問題のご提出ありがとうございます。\n添削結果を返却致します。\nーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー\n\n「Matplotlib」基礎（可視化）【4044】 の応用添削課題お疲れ様でした。\n正解です。\n\n今回の応用添削課題では、モンテカルロ法についての問題でした。\nシッカリと理解されていることがうかがえます。\n\n今後もこの調子で頑張ってください。\nそれでは次回の添削問題もお待ちしております。",
+    "incorrect_response": "〔新〕「Matplotlib」基礎（可視化）【4044】の応用添削課題のご提出ありがとうございます。\n添削結果を返却いたします。\nーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー\n\n「Matplotlib」基礎（可視化）【4044】の応用添削課題のご提出お疲れさまでした。\n 残念ながら不正解です。\n\n{{修正コメント}}\n\n解答例を添付いたしますので、内容のご確認をお願いいたします。\n\n再提出の必要はございませんので、先に、お進みください。\n次回の提出もお待ちしております。"
     },
     {
     "course": "データクレンジング【4050】",
