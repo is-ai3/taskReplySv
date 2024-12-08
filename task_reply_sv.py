@@ -23,7 +23,17 @@ def get_course_data():
     # 該当データを返却
     if result:
         # JSONデータをUTF-8形式でレスポンス
+        #return Response(json.dumps(result, ensure_ascii=False), content_type="application/json; charset=utf-8")
+
+        # courseがリストの場合は、該当するデータのみを返却
+        if isinstance(result["course"], list):
+            result["course"] = course_name
+
+        # JSONデータをUTF-8形式でレスポンス
         return Response(json.dumps(result, ensure_ascii=False), content_type="application/json; charset=utf-8")
+
+
+
     else:
         # エラーの場合も同様に対応
         return Response(
