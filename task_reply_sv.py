@@ -12,7 +12,13 @@ def get_course_data():
     course_name = request.args.get('course_name')
     
     # 該当するコース情報を検索
-    result = next((item for item in tasks if item["course"] == course_name), None)
+#    result = next((item for item in tasks if item["course"] == course_name), None) #--- タイトルが１個だけのときは動いた。
+
+    # 該当するコース情報を検索（タイトルが複数あっても、１つでも対応）
+    result = next((item for item in tasks if 
+                   (isinstance(item["course"], list) and course_name in item["course"]) or  # courseがリストの場合
+                   (isinstance(item["course"], str) and course_name == item["course"])), None)  # courseが文字列の場合
+   
     
     # 該当データを返却
     if result:
