@@ -14,25 +14,23 @@ def get_course_data():
     # 該当するコース情報を検索
 #    result = next((item for item in tasks if item["course"] == course_name), None) #--- タイトルが１個だけのときは動いた。
 
-    # 該当するコース情報を検索（タイトルが複数あっても、１つでも対応）
-    result = next((item for item in tasks if 
-                   (isinstance(item["course"], list) and course_name in item["course"]) or  # courseがリストの場合
-                   (isinstance(item["course"], str) and course_name == item["course"])), None)  # courseが文字列の場合
-   
+    # 該当するコース情報を検索
+    result = None
+    for item in tasks:
+        if isinstance(item["course"], list) and course_name in item["course"]:
+            # 一致するコース名を個別に設定
+            result = {**item, "course": course_name}
+            break
+        elif isinstance(item["course"], str) and course_name == item["course"]:
+            result = item
+            break   
     
     # 該当データを返却
     if result:
         # JSONデータをUTF-8形式でレスポンス
         #return Response(json.dumps(result, ensure_ascii=False), content_type="application/json; charset=utf-8")
 
-        # courseがリストの場合は、該当するデータのみを返却
-        if isinstance(result["course"], list):
-            result["course"] = course_name
-
-        # JSONデータをUTF-8形式でレスポンス
         return Response(json.dumps(result, ensure_ascii=False), content_type="application/json; charset=utf-8")
-
-
 
     else:
         # エラーの場合も同様に対応
