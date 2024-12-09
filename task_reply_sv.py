@@ -15,15 +15,20 @@ def get_course_data():
 #    result = next((item for item in tasks if item["course"] == course_name), None) #--- タイトルが１個だけのときは動いた。
 
     # 該当するコース情報を検索
-    result = None
-    for item in tasks:
-        if isinstance(item["course"], list) and course_name in item["course"]:
-            # 一致するコース名を個別に設定
-            result = {**item, "course": course_name}
+result = None
+for item in tasks:
+    # courseがリストの場合の判定
+    if isinstance(item["course"], list):
+        if course_name in item["course"]:
+            # 指定されたコース名のみを返す（リストを単一の値に変換）
+            result = item.copy()  # オリジナルデータを保持するためコピー
+            result["course"] = course_name
             break
-        elif isinstance(item["course"], str) and course_name == item["course"]:
+    # courseが文字列の場合の判定
+    elif isinstance(item["course"], str):
+        if course_name == item["course"]:
             result = item
-            break   
+            break  
     
     # 該当データを返却
     if result:
